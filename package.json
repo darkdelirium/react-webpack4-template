@@ -6,7 +6,7 @@
   "author": "darkdelirium",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --hot --devtool eval-source-map --mode=development --watch --inline --colors --port 8080",
+    "start": "webpack-dev-server --hot --devtool eval-source-map --mode=development --watch --inline --colors --history-api-fallback --port 8080",
     "build": "webpack -p"
   },
   "devDependencies": {
