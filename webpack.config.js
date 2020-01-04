@@ -32,11 +32,28 @@ const config = {
         exclude: /node_modules/,
         use: ["babel-loader"]
       },
+      // CSS-Modules *.modules.css
+      {
+        test: /\.module\.css$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1,
+              modules: { localIdentName: "[name]__[local]___[hash:base64:5]" }
+            }
+          }
+        ]
+      },
       // CSS Files
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader?modules"
+        exclude: /\.module\.css$/,
+        //loader: "style-loader!css-loader?modules"
+        use: ["style-loader", "css-loader"]
       },
+
       {
         test: /\.(png|jp(e*)g|svg|gif)$/,
         use: [
